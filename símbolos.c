@@ -1,3 +1,5 @@
+/*****     símbolos.c    **********************/
+
 #include "global.h"
 #define MAXLEX 999      /* tamaño de la matriz de lexemas */
 #define MAXSIMB 100     /* tamaño de tablasimb */
