@@ -20,7 +20,7 @@ int busca(s)      /* devuelve la posición del elemento de entrada de s */
   return 0;
 }
 
-  int inserta(s,clex)    /* devuelve la posición del elemento de entrada de s */
+int inserta(s,clex)    /* devuelve la posición del elemento de entrada de s */
 
   char s[];
   int clex;

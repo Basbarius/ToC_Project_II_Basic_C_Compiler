@@ -4,8 +4,10 @@
 
 
 /* genera la salida*/
-emite(t, tval){
+emite(t, tval)
     int t, tval;
+{
+
 
     switch (t){
     case '+': case '-': case '*': case '/':

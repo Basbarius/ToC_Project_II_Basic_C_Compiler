@@ -33,7 +33,7 @@ int analex(){
             if(p == 0)
                 p = inserta(buflex, ID);
             valcomplex = p;
-            return tablassimb[p].complex;
+            return tablasimb[p].complex;
         }
         else if(t == EOF)
             return FIN;

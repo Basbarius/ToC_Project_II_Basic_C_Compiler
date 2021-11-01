@@ -1,5 +1,7 @@
 #include <stdio.h>
+
 #include <ctype.h>
+
 
 #define TAMBUFF 128
 #define NINGUNO -1
@@ -17,4 +19,4 @@ struct entrada{
     int complex;
 };
 
-struct entrada tablassimb[];
+struct entrada tablasimb[];
