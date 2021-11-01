@@ -1,3 +1,5 @@
+/*****    inc.c    **************/
+
 #include "global.h"
 
 struct entrada.palsclave[] = {
