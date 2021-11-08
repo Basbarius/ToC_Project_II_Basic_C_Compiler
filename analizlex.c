@@ -8,6 +8,7 @@ int analex(){
     int t;
     while(1){
         t = getchar();
+        //printf("looping %c", t);
         if(t == ' ' || t == '\t')
             ;
         else if(t == '\n')
@@ -33,6 +34,9 @@ int analex(){
             if(p == 0)
                 p = inserta(buflex, ID);
             valcomplex = p;
+            if(tablasimb[p].complex > 261 && tablasimb[p].complex < 269){
+                return PROP;
+            }
             return tablasimb[p].complex;
         }
         else if(t == EOF)

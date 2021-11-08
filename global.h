@@ -11,6 +11,14 @@
 #define MOD 258
 #define ID 259
 #define FIN 260
+#define PROP 261
+#define ASI 262
+#define IF 263
+#define THEN 264
+#define WHILE 265
+#define DO 266
+#define BEGIN 267
+#define END 268
 
 int valcomplex;
 int numlinea;

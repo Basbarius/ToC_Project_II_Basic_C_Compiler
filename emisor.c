@@ -10,7 +10,7 @@ emite(t, tval)
 
 
     switch (t){
-    case '+': case '-': case '*': case '/':
+    case '+': case '-': case '*': case '/': case '=':
         printf("%c\n", t); break;
     case DIV:
         printf("DIV\n"); break;
@@ -18,7 +18,7 @@ emite(t, tval)
         printf("MOD\n"); break;
     case NUM:
         printf("%d\n", tval); break;
-    case ID:
+    case ID: case PROP:
         printf("%s\n", tablasimb[tval].aplex); break;
     default:
         printf("complex %d, valcomplex %d\n", t, tval); break;
