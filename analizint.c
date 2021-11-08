@@ -11,15 +11,12 @@ analsint(){
             prop(); parea(';');
         }
         else{
-            printf("expresion\n");
             expr(); parea(';');
         }
-        printf("vuelta\n");
     }
 }
 
 prop(){
-    //printf("proposition %d\n", preanalisis);
     if(preanalisis == PROP)
         emite(PROP, valcomplex);
     switch(tablasimb[valcomplex].complex){
@@ -56,8 +53,11 @@ prop(){
                 }
                 break;
             case ID:
-                //printf("expression\n");
+                preanalisis = ASI;
+                factor();
+                parea(':'); parea('=');
                 expr();
+                emite(ASIOP, NINGUNO);
                 break;
             default:
                 error("Error de sintaxis");
@@ -86,9 +86,30 @@ expr(){
     termino();
     while (1){
         switch(preanalisis){
-            case '=':
+            case '=': 
                 t = preanalisis;
                 parea(preanalisis); expr(); emite(t, NINGUNO);
+                continue;
+            case '<':
+                t = preanalisis;
+                parea(preanalisis); 
+                if(preanalisis == '>'){
+                    parea(preanalisis);
+                    t = NOTEQUAL;
+                }else if(preanalisis == '='){
+                    parea (preanalisis);
+                    t = SOE;
+                }
+                expr(); emite(t, NINGUNO);
+                continue;
+            case '>':
+                t = preanalisis;
+                parea(preanalisis); 
+                if(preanalisis == '='){
+                    parea (preanalisis);
+                    t = GOE;
+                }
+                expr(); emite(t, NINGUNO);
                 continue;
             case '+': case '-': 
                 t = preanalisis;
@@ -106,14 +127,12 @@ termino(){
     int t;
     factor();
     while (1){
-        //printf("termino %d\n", preanalisis);
         switch (preanalisis){
             case '*': case '/': case DIV: case MOD:
                 t = preanalisis;
                 parea(preanalisis); factor(); emite(t, NINGUNO);
                 continue;
             default:
-                //printf("return termino\n");
                 return;
         }
     }
@@ -127,7 +146,10 @@ factor(){
             emite(NUM, valcomplex); parea(NUM); break;
         case ID:
             emite(ID, valcomplex); parea(ID); break;
+        case ASI:
+            emite(ASI, valcomplex); parea(ASI); break;
         default:
+            printf("error aqui %d", preanalisis);
             error("error de sintaxis");   
     }
 }
@@ -139,7 +161,6 @@ parea (t)
       preanalisis = analex();
    }
    else{
-      printf("%d'\n", t);
       error("error de sintaxis");
    }
 }
