@@ -5,10 +5,9 @@ int numlinea = 1;
 int valcomplex = NINGUNO;
 
 int analex(){
-    int t;
+    int t,u,v;
     while(1){
         t = getchar();
-        //printf("looping %c", t);
         if(t == ' ' || t == '\t')
             ;
         else if(t == '\n')
@@ -20,12 +19,22 @@ int analex(){
         }
         else if(isalpha(t)){
             int p, b = 0;
+            int isProp = 0;
             while(isalnum(t)){
                 buflex[b] = t;
                 t = getchar();
                 b += 1;
                 if(b >= TAMBUFF)
                     error("Error del compilador");
+            }
+            while(1){
+                if(t == ' ' || t == '\t'){
+                    t = getchar();
+                    continue;
+                }
+                if(t == ':')
+                    isProp = 1;
+                break;
             }
             buflex[b] = FDC;
             if(t != EOF)
@@ -35,8 +44,10 @@ int analex(){
                 p = inserta(buflex, ID);
             valcomplex = p;
             if(tablasimb[p].complex > 261 && tablasimb[p].complex < 269){
-                return PROP;
+                isProp = 1;
             }
+            if(isProp == 1)
+                return PROP;
             return tablasimb[p].complex;
         }
         else if(t == EOF)

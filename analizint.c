@@ -17,7 +17,7 @@ analsint(){
 }
 
 prop(){
-    if(preanalisis == PROP)
+    if(preanalisis == PROP && tablasimb[valcomplex].complex != ID)
         emite(PROP, valcomplex);
     switch(tablasimb[valcomplex].complex){
             case IF:
@@ -55,7 +55,7 @@ prop(){
             case ID:
                 preanalisis = ASI;
                 factor();
-                parea(':'); parea('=');
+                parea(':');parea('=');
                 expr();
                 emite(ASIOP, NINGUNO);
                 break;
