@@ -1,0 +1,3 @@
+if a then b := 2;
+
+if b then a := 1;
