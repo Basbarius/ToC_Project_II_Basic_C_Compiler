@@ -1,1 +1,2 @@
+# Expresion para puntos extras
 dia := (1461*a) div 4 + (153*m + 2) div 5 + d;
