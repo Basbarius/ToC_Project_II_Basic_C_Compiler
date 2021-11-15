@@ -1,1 +1,1 @@
-while a:<= 7 do b:b + 1;
+if a<= 7 then b:=7 ;
