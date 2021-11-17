@@ -1,2 +1,0 @@
-#Para mostrar error de sintaxis 
-begin a:=5 end;
