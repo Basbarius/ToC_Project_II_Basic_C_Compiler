@@ -1,1 +1,0 @@
-if b mod 7 then a:= a-1;
